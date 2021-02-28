@@ -20,7 +20,7 @@ type BedStruct struct {
 
 //
 func BedStatus() BedStruct {
-	resTemp := Get(bed_endpoint)
+	resTemp := Get(bed_endpoint,"")
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
 	resTemp.Body.Close()
 	dec := json.NewDecoder(strings.NewReader(string(jsonTemp)))

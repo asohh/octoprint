@@ -19,7 +19,7 @@ Tool0 struct {
 }
 //
 func ToolStatus() ToolStruct {
-	resTemp := Get(toolEndpoint)
+	resTemp := Get(toolEndpoint,"")
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
 	resTemp.Body.Close()
 	dec := json.NewDecoder(strings.NewReader(string(jsonTemp)))
