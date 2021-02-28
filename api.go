@@ -12,7 +12,7 @@ func SetAPIKey(key string) {
 	apiKey = key
 }
 func IsAPIKeySet() bool{
-	return apiKey!=nil
+	return len(apiKey) > 0
 }
 func SetHost(hostname string) {
 	host = hostname
