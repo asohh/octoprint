@@ -22,8 +22,15 @@ func Get(path string) *http.Response {
 	req, _ := http.NewRequest("GET", host+path, nil)
 	req.Header.Set("X-Api-Key", apiKey)
 	res, _ := client.Do(req)
+	if res.StatusCode == http.StatusOK {
+		return res
+		bodyBytes, _ := ioutil.ReadAll(res.Body)
+		bodyString := string(bodyBytes)
+		fmt.Println(bodyString)
+	} else{
+		return res
+	}
 
-	return res
 }
 
 func Post(path string, body []byte) *http.Response {
