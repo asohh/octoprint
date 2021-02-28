@@ -66,7 +66,7 @@ func JobPause(action string) {
 }
 
 func JobStatus() JobStruct {
-	resTemp := Get(jobEndpoint."")
+	resTemp := Get(jobEndpoint,"")
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
 	resTemp.Body.Close()
 	dec := json.NewDecoder(strings.NewReader(string(jsonTemp)))
