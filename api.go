@@ -2,9 +2,7 @@ package octoprint
 
 import (
 	"bytes"
-	"fmt"
   "net/http"
-  "io/ioutil"
 )
 
 var apiKey string
