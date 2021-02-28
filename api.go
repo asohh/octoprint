@@ -24,7 +24,8 @@ func GetHost() string{
 }
 func Get(path string, key string) *http.Response {
 	client := &http.Client{}
-	req, _ := http.NewRequest("GET", host+path, nil)
+	req, err := http.NewRequest("GET", host+path, nil)
+	fmt.Println(err)
 	// req.Header.Set("X-Api-Key", key)
 	fmt.Println(key)
 	res, _ := client.Do(req)
