@@ -23,7 +23,7 @@ func GetHost() string{
 	return host
 }
 func Get(path string, key string) *http.Response {
-	client := http.DefaultClient
+	client := http.Client
 	req, _ := http.NewRequest("GET", host+path, nil)
 	// req.Header.Set("X-Api-Key", key)
 	fmt.Println(key)
