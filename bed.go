@@ -8,7 +8,8 @@ import (
 	"strings"
 )
 
-const endpoint = "api/printer/bed"
+const bed_endpoint = "api/printer/bed"
+
 type BedStruct struct {
 	Bed struct {
 		Actual float32 `json:"actual"`
@@ -18,12 +19,12 @@ type BedStruct struct {
 }
 
 //
-func Status() models.BedStruct {
-	resTemp := api.Get(endpoint)
+func Status() BedStruct {
+	resTemp := Get(bed_endpoint)
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
 	resTemp.Body.Close()
 	dec := json.NewDecoder(strings.NewReader(string(jsonTemp)))
-	var m models.BedStruct
+	var m BedStruct
 	for {
 
 		if err := dec.Decode(&m); err == io.EOF {

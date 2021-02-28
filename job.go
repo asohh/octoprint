@@ -32,14 +32,14 @@ type JobStruct struct {
 }
 
 
-const endpoint = "/api/job"
+const job_endpoint = "/api/job"
 
 func execute(command string, action string) {
 	switch command {
 	case "pause":
-		api.Post(endpoint, []byte("{\"command\":\""+command+"\",\"action\": \""+action+"\"}"))
+		api.Post(job_endpoint, []byte("{\"command\":\""+command+"\",\"action\": \""+action+"\"}"))
 	default:
-		api.Post(endpoint, []byte("{\"command\":\""+command+"\"}"))
+		api.Post(job_endpoint, []byte("{\"command\":\""+command+"\"}"))
 	}
 }
 
@@ -65,12 +65,12 @@ func Pause(action string) {
 
 }
 
-func Status() models.JobStruct {
-	resTemp := api.Get(endpoint)
+func Status() JobStruct {
+	resTemp := Get(job_endpoint)
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
 	resTemp.Body.Close()
 	dec := json.NewDecoder(strings.NewReader(string(jsonTemp)))
-	var m models.JobStruct
+	var m JobStruct
 	for {
 
 		if err := dec.Decode(&m); err == io.EOF {
