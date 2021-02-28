@@ -19,6 +19,9 @@ func IsAPIKeySet() bool{
 func SetHost(hostname string) {
 	host = hostname
 }
+func GetHost() string{
+	return host
+}
 func Get(path string) *http.Response {
 	client := &http.Client{}
 	req, _ := http.NewRequest("GET", host+path, nil)
