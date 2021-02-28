@@ -25,13 +25,12 @@ func Get(path string) *http.Response {
 	req.Header.Set("X-Api-Key", apiKey)
 	res, _ := client.Do(req)
 	if res.StatusCode == http.StatusOK {
-		return res
+
 		bodyBytes, _ := ioutil.ReadAll(res.Body)
 		bodyString := string(bodyBytes)
 		fmt.Println(bodyString)
-	} else{
-		return res
 	}
+	return res
 
 }
 
