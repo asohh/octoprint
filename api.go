@@ -1,9 +1,9 @@
 package octoprint
 
-import (
-	"bytes"
-	"net/http"
-)
+// import (
+// 	"bytes"
+// 	"net/http"
+// )
 
 var apiKey string
 var host string
