@@ -27,13 +27,7 @@ func Get(path string) *http.Response {
 	req, _ := http.NewRequest("GET", host+path, nil)
 	req.Header.Set("X-Api-Key", apiKey)
 	res, _ := client.Do(req)
-	fmt.Println(res)
-	if res.StatusCode == http.StatusOK {
 
-		bodyBytes, _ := ioutil.ReadAll(res.Body)
-		bodyString := string(bodyBytes)
-		fmt.Println(bodyString)
-	}
 	return res
 
 }
