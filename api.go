@@ -22,12 +22,10 @@ func SetHost(hostname string) {
 func GetHost() string{
 	return host
 }
-func Get(path string, key string) *http.Response {
+func Get(path string) *http.Response {
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", host+path, nil)
-	fmt.Println(err)
-	// req.Header.Set("X-Api-Key", key)
-	fmt.Println(key)
+	req, _ := http.NewRequest("GET", host+path, nil)
+	req.Header.Set("X-Api-Key", apiKey)
 	res, _ := client.Do(req)
 	fmt.Println(res)
 	if res.StatusCode == http.StatusOK {
