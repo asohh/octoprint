@@ -25,7 +25,8 @@ func GetHost() string{
 func Get(path string, key string) *http.Response {
 	client := &http.Client{}
 	req, _ := http.NewRequest("GET", host+path, nil)
-	req.Header.Set("X-Api-Key", key)
+	// req.Header.Set("X-Api-Key", key)
+	fmt.Println(key)
 	res, _ := client.Do(req)
 	fmt.Println(res)
 	if res.StatusCode == http.StatusOK {
