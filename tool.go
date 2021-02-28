@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-const tool_endpoint = "api/printer/tool"
+const toolEndpoint = "api/printer/tool"
 
 type ToolStruct struct {
 Tool0 struct {
@@ -18,8 +18,8 @@ Tool0 struct {
 } `json:"tool0"`
 }
 //
-func Status() ToolStruct {
-	resTemp := Get(tool_endpoint)
+func ToolStatus() ToolStruct {
+	resTemp := Get(toolEndpoint)
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
 	resTemp.Body.Close()
 	dec := json.NewDecoder(strings.NewReader(string(jsonTemp)))
@@ -36,14 +36,14 @@ func Status() ToolStruct {
 	return m
 }
 
-func GetTemp(temp string) float32 {
+func ToolGetTemp(temp string) float32 {
 	switch temp {
 	case "offset":
-		return Status().Tool0.Offset
+		return ToolStatus().Tool0.Offset
 	case "target":
-		return Status().Tool0.Target
+		return ToolStatus().Tool0.Target
 	default:
-		return Status().Tool0.Actual
+		return ToolStatus().Tool0.Actual
 	}
 
 }

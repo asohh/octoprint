@@ -19,7 +19,7 @@ type BedStruct struct {
 }
 
 //
-func Status() BedStruct {
+func BedStatus() BedStruct {
 	resTemp := Get(bed_endpoint)
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
 	resTemp.Body.Close()
@@ -40,11 +40,11 @@ func Status() BedStruct {
 func GetTemp(temp string) float32 {
 	switch temp {
 	case "offset":
-		return Status().Bed.Offset
+		return BedStatus().Bed.Offset
 	case "target":
-		return Status().Bed.Target
+		return BedStatus().Bed.Target
 	default:
-		return Status().Bed.Actual
+		return BedStatus().Bed.Actual
 	}
 
 }
