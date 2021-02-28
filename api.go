@@ -11,6 +11,9 @@ var host string
 func SetAPIKey(key string) {
 	apiKey = key
 }
+func IsAPIKeySet() boolean{
+	return apiKey!=nil
+}
 func SetHost(hostname string) {
 	host = hostname
 }
