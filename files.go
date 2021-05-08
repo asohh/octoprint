@@ -67,7 +67,8 @@ type FilesStruct struct {
 			} `json:"print"`
 		} `json:"children,omitempty"`
 	} `json:"files"`
-	Free string `json:"free"`
+	Free int `json:"free"`
+  total int `json:"total"`
 }
 
 
