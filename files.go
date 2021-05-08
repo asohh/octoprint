@@ -23,9 +23,9 @@ type FilesStruct struct {
 			Download string `json:"download"`
 		} `json:"refs,omitempty"`
 		GcodeAnalysis struct {
-			EstimatedPrintTime int `json:"estimatedPrintTime"`
+			EstimatedPrintTime float64 `json:"estimatedPrintTime"`
 			Filament           struct {
-				Length int     `json:"length"`
+				Length float64     `json:"length"`
 				Volume float64 `json:"volume"`
 			} `json:"filament"`
 		} `json:"gcodeAnalysis,omitempty"`
@@ -53,7 +53,7 @@ type FilesStruct struct {
 			GcodeAnalysis struct {
 				EstimatedPrintTime int `json:"estimatedPrintTime"`
 				Filament           struct {
-					Length int     `json:"length"`
+					Length float64     `json:"length"`
 					Volume float64 `json:"volume"`
 				} `json:"filament"`
 			} `json:"gcodeAnalysis"`
