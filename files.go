@@ -75,7 +75,7 @@ type FilesStruct struct {
 const filesEndpoint = "/api/files"
 
 func SelectFile(path string, print string) {
-		Post(filesEndpoint, []byte("{\"command\":\"select\",\"print\":"+print+"}"))
+		Post(filesEndpoint+path, []byte("{\"command\":\"select\",\"print\":"+print+"}"))
 }
 
 func FilesStatus() FilesStruct {
