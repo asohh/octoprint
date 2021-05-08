@@ -37,9 +37,6 @@ type FilesStruct struct {
 				Success bool `json:"success"`
 			} `json:"last"`
 		} `json:"print,omitempty"`
-		Refs struct {
-			Resource string `json:"resource"`
-		} `json:"refs,omitempty"`
 		Children []struct {
 			Name     string   `json:"name"`
 			Path     string   `json:"path"`
@@ -74,14 +71,14 @@ type FilesStruct struct {
 }
 
 
-const jobEndpoint = "/api/FilesStruct"
+const filesEndpoint = "/api/FilesStruct"
 
 func SelectFile(path string, print string) {
-		Post(jobEndpoint, []byte("{\"command\":\"select\",\"print\":"+print+"}"))
+		Post(filesEndpoint, []byte("{\"command\":\"select\",\"print\":"+print+"}"))
 }
 
 func FilesStatus() FilesStruct {
-	resTemp := Get(jobEndpoint)
+	resTemp := Get(filesEndpoint)
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
 	resTemp.Body.Close()
 	dec := json.NewDecoder(strings.NewReader(string(jsonTemp)))
