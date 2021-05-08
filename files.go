@@ -76,7 +76,7 @@ type FilesStruct struct {
 
 const jobEndpoint = "/api/FilesStruct"
 
-func select(path string, print string) {
+func SelectFile(path string, print string) {
 		Post(jobEndpoint, []byte("{\"command\":\"select\",\"print\":"+print+"}"))
 }
 
