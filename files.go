@@ -71,7 +71,7 @@ type FilesStruct struct {
 }
 
 
-const filesEndpoint = "/api/FilesStruct"
+const filesEndpoint = "/api/files"
 
 func SelectFile(path string, print string) {
 		Post(filesEndpoint, []byte("{\"command\":\"select\",\"print\":"+print+"}"))
