@@ -64,7 +64,10 @@ func JobPause(action string) {
 	}
 
 }
+func JobTimeRemaining() float32{
+return JobStatus().Progress.PrintTimeLeft
 
+}
 func JobStatus() JobStruct {
 	resTemp := Get(jobEndpoint)
 	jsonTemp, _ := ioutil.ReadAll(resTemp.Body)
